@@ -429,7 +429,7 @@
 					// been set by the getDeps loop before we get here.
 					if (def.exports) {
 						execute(deps);
-						if (def.exports['__esModule']) {
+						if (!cfg['esModules'] || def.exports['__esModule']) {
 							def.progress(msgFactoryExecuted);
 						}
 					}
