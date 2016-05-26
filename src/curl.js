@@ -903,7 +903,9 @@
 					// is listed after `module` or `exports` in the deps list,
 					// but that is okay since all waiters will only record
 					// it once.
-					parentDef.progress(msgUsingExports);
+					if (!parentDef.config['esModules']) {
+						parentDef.progress(msgUsingExports);
+					}
 				}
 				// check for blanks. fixes #32.
 				// this helps support yepnope.js, has.js, and the has! plugin
