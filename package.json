@@ -1,35 +1,55 @@
 {
-	"name": "curl-amd",
-	"version": "0.8.13",
-	"description": "curl.js is small, fast, extensible module loader that handles AMD, CommonJS Modules/1.1, CSS, HTML/text, and legacy scripts.",
-	"keywords": ["curl", "cujo", "amd", "loader", "module", "commonjs", "css", "html", "json"],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/cujojs/curl"
-	},
-	"bugs": "https://github.com/cujojs/curl/issues",
-	"maintainers": [
-		{
-			"name": "John Hann",
-			"web": "http://unscriptable.com"
-		}
-	],
-	"contributors": [
-		{
-			"name": "John Hann",
-			"web": "http://unscriptable.com"
-		},
-		{
-			"name": "Brian Cavalier",
-			"web": "http://hovercraftstudios.com"
-		}
-	],
-	"main": "./dist/curl-for-ssjs/curl.js",
-	"directories": {
-		"test": "test"
-	},
-	"volo": {
-		"type": "directory"
-	}
+  "name": "curl-amd",
+  "version": "0.8.14",
+  "description": "curl.js is small, fast, extensible module loader that handles AMD, CommonJS Modules/1.1, CSS, HTML/text, and legacy scripts.",
+  "keywords": [
+    "curl",
+    "cujo",
+    "amd",
+    "loader",
+    "module",
+    "commonjs",
+    "css",
+    "html",
+    "json"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cujojs/curl"
+  },
+  "bugs": "https://github.com/cujojs/curl/issues",
+  "maintainers": [
+    {
+      "name": "John Hann",
+      "web": "http://unscriptable.com"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "John Hann",
+      "web": "http://unscriptable.com"
+    },
+    {
+      "name": "Brian Cavalier",
+      "web": "http://hovercraftstudios.com"
+    }
+  ],
+  "main": "./dist/curl-for-ssjs/curl.js",
+  "directories": {
+    "test": "test"
+  },
+  "volo": {
+    "type": "directory"
+  },
+  "devDependencies": {
+    "del": "^0.1.3",
+    "google-closure-compiler": "^20160517.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-size": "^1.2.1",
+    "run-sequence": "^1.0.1"
+  }
 }

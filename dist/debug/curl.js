@@ -1,4 +1,3 @@
-/* version: 0.8.13 */
 /** @license MIT License (c) copyright 2010-2013 B Cavalier & J Hann */
 
 /**
@@ -14,7 +13,7 @@
 (function (global) {
 //"use strict"; don't restore this until the config routine is refactored
 	var
-		version = '0.8.13',
+		version = '0.8.14',
 		curlName = 'curl',
 		defineName = 'define',
 		bootScriptAttr = 'data-curl-run',
@@ -430,7 +429,9 @@
 					// been set by the getDeps loop before we get here.
 					if (def.exports) {
 						execute(deps);
-						def.progress(msgFactoryExecuted);
+						if (!cfg['esModules'] || def.exports['__esModule']) {
+							def.progress(msgFactoryExecuted);
+						}
 					}
 				});
 			};
@@ -1408,6 +1409,7 @@
 	};
 
 }(this.window || (typeof global != 'undefined' && global) || this));
+
 /** MIT License (c) copyright 2010-2013 B Cavalier & J Hann */
 
 /**
@@ -1430,7 +1432,7 @@
  * TODO: only add logging to some of the useful core functions
  *
  */
-define('curl/debug', ['require', 'curl/_privileged'], function (require, priv) {
+define(/*=='curl/debug',==*/ ['require', 'curl/_privileged'], function (require, priv) {
 "use strict";
 
 	var cache, totalWaiting, prevTotal, origDefine;

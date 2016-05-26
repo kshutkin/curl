@@ -1,4 +1,3 @@
-/* version: 0.8.13 */
 /** @license MIT License (c) copyright 2010-2013 B Cavalier & J Hann */
 
 /**
@@ -14,7 +13,7 @@
 (function (global) {
 //"use strict"; don't restore this until the config routine is refactored
 	var
-		version = '0.8.13',
+		version = '0.8.14',
 		curlName = 'curl',
 		defineName = 'define',
 		bootScriptAttr = 'data-curl-run',
@@ -430,7 +429,9 @@
 					// been set by the getDeps loop before we get here.
 					if (def.exports) {
 						execute(deps);
-						def.progress(msgFactoryExecuted);
+						if (!cfg['esModules'] || def.exports['__esModule']) {
+							def.progress(msgFactoryExecuted);
+						}
 					}
 				});
 			};
@@ -1408,7 +1409,8 @@
 	};
 
 }(this.window || (typeof global != 'undefined' && global) || this));
-define('curl/plugin/_fetchText', [], function () {
+
+define(/*=='curl/plugin/_fetchText',==*/ [], function () {
 
 	var xhr, progIds;
 
@@ -1460,8 +1462,9 @@ define('curl/plugin/_fetchText', [], function () {
 	return fetchText;
 
 });
+
 (function (freeRequire) {
-define('curl/shim/_fetchText', function () {
+define(/*=='curl/shim/_fetchText',==*/ function () {
 
 	var fs, http, url;
 
@@ -1509,6 +1512,7 @@ define('curl/shim/_fetchText', function () {
 
 });
 }(require));
+
 /** MIT License (c) copyright 2010-2013 B Cavalier & J Hann */
 
 /**
@@ -1525,7 +1529,7 @@ define['amd'].ssjs = true;
 if (typeof module !== 'undefined') module.exports = curl;
 var require, load;
 (function (freeRequire, globalLoad) {
-define('curl/shim/ssjs', ['curl/_privileged', './_fetchText'], function (priv, _fetchText) {
+define(/*=='curl/shim/ssjs',==*/ ['curl/_privileged', './_fetchText'], function (priv, _fetchText) {
 "use strict";
 
 	var cache, config,
@@ -1663,6 +1667,7 @@ define('curl/shim/ssjs', ['curl/_privileged', './_fetchText'], function (priv, _
 
 });
 }(require, load));
+
 /** MIT License (c) copyright 2010-2013 B Cavalier & J Hann */
 
 /**
@@ -1695,7 +1700,7 @@ define('curl/shim/ssjs', ['curl/_privileged', './_fetchText'], function (priv, _
 
 (function (global, document, globalEval) {
 
-define('curl/loader/cjsm11', ['../plugin/_fetchText', 'curl/_privileged'], function (fetchText, priv) {
+define(/*=='curl/loader/cjsm11',==*/ ['../plugin/_fetchText', 'curl/_privileged'], function (fetchText, priv) {
 
 	var head, insertBeforeEl, extractCjsDeps, checkToAddJsExt;
 
