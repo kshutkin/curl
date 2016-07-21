@@ -938,7 +938,7 @@
 				// we missed the notification and it will never fire in the
 				// when() below.
 				earlyExport = isPromise(childDef) && childDef.exports;
-				if (earlyExport) {
+				if (earlyExport && (!childDef.config['esModules'] || childDef.exports['__esModule'])) {
 					exportOnce(earlyExport);
 				}
 
